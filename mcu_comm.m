@@ -5,7 +5,11 @@ if exist('s') %#ok<EXIST> %Testa pra não dar LOCK do arquivo
 end
 clear;
 
-s = serial('/dev/ttyACM0','BaudRate',115200,'Terminator','CR');
+% Aqui vc define o arquivo da porta correspondente ao microcontrolador.
+% Pode ser uma porta COM (Windows) ou /dev/tty* (LINUX) 
+% Os análogos Bluetooth são bluetooth() (Windows) e para linux tem que se criar um arquivo via comando rfcomm, a abrir via serial()
+
+s = serial('/dev/ttyACM0','BaudRate',115200,'Terminator','CR'); 
 fopen(s);
 
 %% Variavel Gráfico
